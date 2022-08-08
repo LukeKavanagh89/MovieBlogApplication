@@ -3,6 +3,7 @@ class UserDecorator < Draper::Decorator
   def index
     @users = User.all.decorate
   end
+  
   def update 
     user = User.find(params[:id])
     if user.update(params)
