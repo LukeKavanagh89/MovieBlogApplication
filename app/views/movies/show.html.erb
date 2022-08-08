@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Movie has been updated</h1>
+    <p class="col-md-8 fs-4">Thank you for updating the movie to your list, you can now delete this movie information or come back and make changes to this.
+     <br/><br/>
+     <h1> All Movie information and details are labled below</h1>
+     
+      </div>
+
+<%= render @movie %>
+
+<div>
+
+  <%= link_to "Edit this movie", edit_movie_path(@movie), class:"btn btn-light"  %> 
+  <%= link_to "Back to movies", movies_path, class:"btn btn-secondary"%>
+
+  <br/><br/>
+
+  <%= button_to "Delete movie", @movie, method: :delete, class:"btn btn-outline-danger" %>
+</div>
+

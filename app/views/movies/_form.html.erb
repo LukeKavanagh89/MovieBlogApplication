@@ -1,0 +1,56 @@
+<%= form_with(model: movie) do |form| %>
+  <% if movie.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <% form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name, class: "form-control", placeholder:"First Name" %>
+  </div>
+   <br/>
+
+  <div class="field form-group">
+    <% form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name, class: "form-control", placeholder:"Last Name" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :movie, style: "display: block" %>
+    <%= form.text_field :movie, class: "form-control", placeholder:"Movie" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :genre, style: "display: block" %>
+    <%= form.text_field :genre, class: "form-control", placeholder:"Genre" %>
+  </div>
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :email, style: "display: block" %>
+    <%= form.text_field :email, class: "form-control", placeholder:"Email"%>
+  </div>
+
+  <br/>
+
+  <div class="field form-group">
+    <% form.label :user_id, style: "display: block" %>
+     <%= form.number_field :user_id, id: :movie_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
+
+
+  <br/><br/>
+
+  <div>
+    <%= form.submit  class: "btn btn-warning"%>
+  </div>
+<% end %>
